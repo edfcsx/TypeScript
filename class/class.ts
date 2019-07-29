@@ -113,3 +113,13 @@ class Mathematic {
 }
 
 console.log(Mathematic.circArea(4));
+
+// Readonly attributes
+
+class Airplane {
+  constructor(public readonly model: string, public prefix: string) {}
+}
+
+const airplane = new Airplane('Super Tucano', 'Tucan');
+// airplane.model = ''
+console.log(airplane);

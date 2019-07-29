@@ -127,3 +127,14 @@ var Mathematic = /** @class */ (function () {
     return Mathematic;
 }());
 console.log(Mathematic.circArea(4));
+// Readonly attributes
+var Airplane = /** @class */ (function () {
+    function Airplane(model, prefix) {
+        this.model = model;
+        this.prefix = prefix;
+    }
+    return Airplane;
+}());
+var airplane = new Airplane('Super Tucano', 'Tucan');
+// airplane.model = ''
+console.log(airplane);

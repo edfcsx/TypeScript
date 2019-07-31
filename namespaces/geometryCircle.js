@@ -1,3 +1,4 @@
+"use strict";
 var Geometry;
 (function (Geometry) {
     var Area;

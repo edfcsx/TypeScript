@@ -1,3 +1,43 @@
+interface Human {
+  name: string;
+  age?: number;
+  [prop: string]: any;
+  salute(secondName: string): void;
+}
+
+function saysHello(people: Human) {
+  console.log(`Hello!! ${people.name}`)
+}
+
+function changeName(people: Human) {
+  people.name = 'Joca';
+}
+
+const people1: Human = {
+  name: 'José',
+  age: 24,
+  xyz: true,
+  salute(secondName: string) {
+    console.log(`My name is ${this.name} ${secondName}`)
+  },
+}
+
+saysHello(people1);
+people1.salute('Cipriano');
+changeName(people1)
+saysHello(people1);
+
+// Use Class
+class Client implements Human {
+  public name: string = '';
+
+  salute = (secondName: string) => console.log(`My name is ${this.name} ${secondName}`);
+}
+
+const clientOne = new Client();
+clientOne.name = 'Han';
+clientOne.salute('Solo');
+
 // Interface Function
 
 interface CalcFunction {

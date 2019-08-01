@@ -125,3 +125,49 @@ const cli = {
 }
 
 cli.log()
+
+// Generics Array 
+const evaluations: Array<number> = [10, 9.3, 7.7];
+evaluations.push(8.4); 
+// evaluations.push('5.5'); 
+console.log(evaluations);
+
+function print<T>(args: T[]) { 
+  args.forEach(element => console.log(element))
+}
+
+print([1, 2, 3]) 
+print<number>([4, 5]) 
+print<string>(['Ana', 'Bia', 'Carlos']) 
+print<{ name: string, age: number}>([
+  { name: 'Felipe', age: 24 },
+  { name: 'Eduardo', age: 25} 
+])
+
+type Student = { name: string, age: number }
+print<Student>([
+  { name: 'Felipe', age: 24 },
+  { name: 'Eduardo', age: 25}
+])
+
+// class with generics
+
+abstract class BinaryOperation<T, R> {
+  constructor(public operation1: T, public operation2: T) {
+
+  }
+  abstract execute(): R
+}
+
+// console.log(new BinaryOperation('Bom', 'Dia').execute());
+// console.log(new BinaryOperation(2, 5).execute());
+// console.log(new BinaryOperation('bom', 3).execute());
+// console.log(new BinaryOperation({}, {}).execute());
+
+class SumBinary extends BinaryOperation<number, number> {
+  execute(): number {
+    return this.operation1 + this.operation2
+  }
+}
+
+console.log(new SumBinary(3, 4).execute())
